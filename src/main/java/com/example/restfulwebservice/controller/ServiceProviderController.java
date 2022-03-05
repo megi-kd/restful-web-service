@@ -1,5 +1,6 @@
 package com.example.restfulwebservice.controller;
 
+import com.example.restfulwebservice.model.Data;
 import com.example.restfulwebservice.model.GreetingMessage;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -21,9 +22,12 @@ public class ServiceProviderController {
 
     @GetMapping("/greeting")
     public GreetingMessage getMessage(
-            @RequestParam(value = "name", defaultValue = "Megi",required = false) String name){
+            @RequestParam(value = "name", defaultValue = "Maggie", required = false) String name){
 
-        return new GreetingMessage(counter.incrementAndGet(), String.format(MESSAGE, name));
+        return new GreetingMessage(
+                counter.incrementAndGet(),
+                String.format(MESSAGE, name),
+                new Data(counter.incrementAndGet(), "Special quote!"));
     }
 
 }

@@ -4,10 +4,12 @@ public class GreetingMessage {
 
     private final long id;
     private final String message;
+    private Data data;
 
-    public GreetingMessage(long id, String message){
+    public GreetingMessage(long id, String message, Data data){
         this.id = id;
         this.message = message;
+        this.data = data;
     }
 
     public long getId() {
@@ -16,5 +18,9 @@ public class GreetingMessage {
 
     public String getMessage() {
         return message;
+    }
+
+    public Data getData() {
+        return data;
     }
 }
