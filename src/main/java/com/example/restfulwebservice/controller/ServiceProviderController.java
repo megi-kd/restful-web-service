@@ -3,12 +3,14 @@ package com.example.restfulwebservice.controller;
 import com.example.restfulwebservice.model.Data;
 import com.example.restfulwebservice.model.GreetingMessage;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.concurrent.atomic.AtomicLong;
 
 @RestController
+@RequestMapping("/v1/greeting")
 public class ServiceProviderController {
 
     public final static String MESSAGE = "This is the resulting displaying message for %s";
@@ -20,7 +22,7 @@ public class ServiceProviderController {
     }
 
 
-    @GetMapping("/greeting")
+    @GetMapping("/message")
     public GreetingMessage getMessage(
             @RequestParam(value = "name", defaultValue = "Maggie", required = false) String name){
 
